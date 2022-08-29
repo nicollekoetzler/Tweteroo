@@ -16,14 +16,26 @@ app.post('/sign-up', (req, res) => {
     data.username
     data.avatar
 
-    users.push({ username, avatar })
+    usuarios.push({ username, avatar })
 
     res.send("OK");
 
 });
 
+app.post('/tweets', (req, res) => {
+
+    const data = req.body
+    data.username
+    data.tweet
+
+    tweets.push({ username, tweet })
+
+    res.send("OK");
+
+})
+
 app.get('/tweets', (req, res) => {
-    
+
     const tweetsInvertidos = [...tweets].reverse();
     if(tweets.length <= 10 ){
 
