@@ -9,12 +9,29 @@ app.use(cors());
 const usuarios = []
 const tweets = []
 
-// Configura uma função pra ser executada quando bater um GET na rota "/"
-app.get("/", (req, res) => {
-    // Manda como resposta o texto 'Hello World'
-    res.send('Hello World');
+// Configura uma função pra ser executada quando bater um post na rota "/sign-up"
+app.post('/sign-up', (req, res) => {
+
+    const data = req.body
+    data.username
+    data.avatar
+
+    users.push({ username, avatar })
+
+    res.send("OK");
+
+});
+
+app.get('/tweets', (req, res) => {
+    
+    const tweetsInvertidos = [...tweets].reverse();
+    if(tweets.length <= 10 ){
+
+        res.send(tweetsInvertidos);
+    }
+
 });
 
 app.listen(5000, () => {
-    console.log(chalk.bold.blue('servidor funcionando'));
+    console.log(chalk('server ok'));
 });
